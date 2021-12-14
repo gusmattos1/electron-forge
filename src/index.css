@@ -1,0 +1,141 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 50%;
+  display: flex;
+}
+
+.darkTheme {
+  background: #000000;
+  color: #fff;
+}
+
+.lightTheme {
+  color: #000000;
+  background: #fff;
+}
+
+.slider {
+  border: 1px solid #e5e5e5ff;
+  padding: 30px 20px 0px 20px;
+  border-radius: 10px;
+  width: 200px;
+  margin: auto;
+}
+
+input[type="range"] {
+  height: 28px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #c2e9f5;
+  border-radius: 10px;
+}
+
+.dark > input[type="range"]::-webkit-slider-runnable-track {
+  background: #cba5b1 !important;
+  transition: all 0.5s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: #52bae2;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.5px;
+}
+
+.dark > input[type="range"]::-webkit-slider-thumb {
+  background: rgb(217 64 64) !important;
+  transition: all 0.5s;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #c2e9f5;
+  transition: 0.4s all ease-out;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  transition: 1s;
+}
+
+input[type="range"]::-ms-thumb {
+  margin-top: 1px;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: #52bae2;
+  cursor: pointer;
+}
+
+.dark input[type="range"]::-ms-thumb {
+  background: red;
+  transition: all 0.5s;
+}
+
+datalist {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: -23px;
+  padding-top: 0px;
+  position: relative;
+  top: -50px;
+}
+
+option {
+  width: 2ex;
+  display: flex;
+  justify-content: center;
+  height: 42px;
+  align-items: end;
+  height: 4ex;
+  background-position-y: -15px;
+  background-position-x: center;
+  z-index: -1;
+}
+
+option::after {
+  content: "";
+  background: #c2e9f5;
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 33px;
+  z-index: 1000;
+  border-radius: 50%;
+}
+
+.dark option::after {
+  background: #cba5b1 !important;
+  transition: all 0.5s;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+
+</head>
+
+<body>
+  <h1>💖 Hello World!</h1>
+  <p>Welcome to your Electron application.</p>
+  <div class="container">
+    <div id="slider" class="slider">
+      <input id="theme-range" type='range' min='1' max='3' value='1' step='1' list="ticks1"
+        onchange="onSlideChagne(this.value)" />
+      <datalist id="ticks1">
+        <option value="1" label="Dark">1
+        </option>
+        <option value="2" label="System">2</option>
+        <option value="3" label="Light">3</option>
+      </datalist>
+      <output></output>
+    </div>
+  </div>
+
+
+</body>
+<script type="text/javascript">
+  // Load theme preference saved on local storage
+  const previousTheme = localStorage.getItem("theme");
+  if (previousTheme) {
+    onSlideChagne(previousTheme)
+    document.getElementById("theme-range").value = previousTheme
+  }
+
+  function onSlideChagne(selection) {
+    localStorage.setItem("theme", `${selection}`);
+
+    switch (selection) {
+      case "1":
+        setDarkTheme()
+        break;
+      case "2":
+        checkSystemTheme()
+        break;
+      case "3":
+        setLightTheme()
+        break;
+    }
+  }
+
+  function setDarkTheme() {
+    const body = document.getElementsByTagName("body");
+    body[0].classList.add("darkTheme")
+    document.getElementById("slider").classList.add("dark")
+  }
+
+  function setLightTheme() {
+    const body = document.getElementsByTagName("body");
+    body[0].classList.remove("darkTheme")
+    document.getElementById("slider").classList.remove("dark")
+  }
+
+  function checkSystemTheme() {
+    //  Check electron nativeTheme
+    // const { nativeTheme } = require('electron');
+  }
+
+
+</script>
+
+</html>
